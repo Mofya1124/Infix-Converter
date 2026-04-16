@@ -1,0 +1,19 @@
+create empty stack S
+create empty output string
+
+for each character ch in expression:
+    if ch is operand:
+        add to output
+    else if ch is '(':
+        push to stack
+    else if ch is ')':
+        pop until '(' is found
+    else if ch is operator:
+        while stack not empty AND precedence(top) >= precedence(ch):
+            pop stack to output
+        push ch
+
+while stack not empty:
+    pop to output
+
+return output
